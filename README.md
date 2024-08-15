@@ -15,7 +15,7 @@ This repository contains R codes for obtaining the maximum likelihood estimation
 
 In most pre- and post-measurement intervention studies, samples are often drawn based on cutoff points or thresholds. This selective sampling process leads to truncation in the distribution of the respective test statistics. As a result, the standard estimation techniques for distribution parameters become inappropriate because they do not account for the truncated nature of the data. It is therefore crucial to estimate the parameters of the complete distribution based on truncated samples.
 
-[Umair et al.](https://doi.org/10.1177/09622802241267808) proposed a method for maximum likelihood estimation (MLE) of the mixing angle θ in the context of truncated bivariate t-distributions numerically. The methodology allows for accurate parameter estimation despite the truncation. This repository provides an R implementation of the proposed method, enabling researchers to perform MLE for the mixing angle θ in such scenarios.
+[Umair et al. (2024)](https://doi.org/10.1177/09622802241267808) proposed a method for maximum likelihood estimation (MLE) of the mixing angle θ in the context of truncated bivariate t-distributions numerically. The methodology allows for accurate parameter estimation despite the truncation. This repository provides an R implementation of the proposed method, enabling researchers to perform MLE for the mixing angle θ in such scenarios.
 
 ## Installation
 
