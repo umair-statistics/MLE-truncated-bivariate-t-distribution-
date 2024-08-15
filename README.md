@@ -1,14 +1,12 @@
 # Maximum Likelihood Estimation of Mixing Angle θ from Truncated Bivariate t-Distribution
 
-This repository contains R codes for obtaining the maximum likelihood estimation (MLE) of the mixing angle θ from the truncated bivariate t-distribution as proposed by [Shaw et al. (2008)](https://doi.org/10.1016/j.jmva.2007.08.006). The methods implemented here follow the procedures outlined in the paper [Umair et al.](https://doi.org/10.1177/09622802241267808) and are designed to handle truncation in bivariate distributions.
+This repository contains R codes for obtaining the maximum likelihood estimation (MLE) of the mixing angle θ from the truncated bivariate t-distribution as proposed by [Shaw et al. (2008)](https://doi.org/10.1016/j.jmva.2007.08.006). The methods implemented here follow the procedures outlined in the paper [Umair et al. (2024)](https://doi.org/10.1177/09622802241267808) and are designed to handle truncation in bivariate distributions.
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Code Structure](#code-structure)
-- [Example](#example)
 - [References](#references)
 - [Contributing](#contributing)
 - [License](#license)
@@ -56,8 +54,8 @@ Shaw, W. T., Lee, W. M., & Wong, K. F. (2008). Maximum likelihood estimation of 
 Contributions are welcome! If you have improvements or fixes, feel free to fork this repository, make your changes, and submit a pull request.
 
 ## License
-
-This project is licensed under the GP License - see the [LICENSE](LICENSE) file for details.
+[![License (MIT)](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](http://opensource.org/licenses/MIT)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
