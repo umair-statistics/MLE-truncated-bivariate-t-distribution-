@@ -60,7 +60,7 @@ For a quick start, refer to the `MLEs.R` script in the repository.
 
 Shaw, W. T., Lee, W. M., & Wong, K. F. (2008). Maximum likelihood estimation of the mixing angle in a truncated bivariate t-distribution. *Journal of Multivariate Analysis*, 99(6), 1276-1287. DOI: [10.1016/j.jmva.2007.08.006](https://doi.org/10.1016/j.jmva.2007.08.006)
 
-Umair, M., Khan, M., & Olivier, J. (2024). Accounting for regression to the mean under the bivariate t-distribution. *Statistical Methods in Medical Research*, [09622802241267808](https://doi.org/10.1177/09622802241267808).
+Umair, M., Khan, M., & Olivier, J. (2024). Accounting for regression to the mean under the bivariate t-distribution. *Statistical Methods in Medical Research*, 33(9), 1624-1636. DOI: [09622802241267808](https://doi.org/10.1177/09622802241267808).
 
 ## Contributing
 
