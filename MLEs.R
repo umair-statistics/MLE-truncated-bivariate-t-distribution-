@@ -2,7 +2,6 @@
 library(reshape2)
 library(ggplot2)
 library(ggpubr)
-library(latex2exp)
 #devtools::install_github('umair-statistics/RTM')
 library(RTM)
 theme_set(theme_bw(base_size = 11))
@@ -47,9 +46,15 @@ ll.theta <- sapply(theta.grid, function(th) {
 })
 
 ### Plot log likelihood
-theta_ll_df<-data.frame("theta"=theta.grid,"loglik"=ll.theta)
-ll.plot <-ggplot(theta_ll_df,aes(theta,loglik))+geom_line()+geom_vline(xintercept=theta.grid[which.max(ll.theta)],lty=2)+
-  xlab(TeX(r"($\theta$ (In radians))"))+ylab("Log likelihood")
+ll.plot <- ggplot(theta_ll_df, aes(theta, loglik)) +
+  geom_line() +
+  geom_vline(xintercept = theta.grid[which.max(ll.theta)], lty = 2) +
+  labs(
+    title = expression("Case 1:" ~ n[1] == ~ n[2] == 9),
+    x     = expression(theta ~ "(in radians)"),
+    y     = "Log likelihood"
+  )
+ll.plot
 
 #### MAXIMUM LIKELIHOOD ESTIMATION ####
 #### UNEQUAL DEGREE OF FREEDOMS ####
@@ -92,8 +97,14 @@ ll.theta <- sapply(theta.grid, function(th) {
 
 # Plot log likelihood (Truncated)
 thetall<-data.frame("theta"=theta.grid,"loglik"=ll.theta)
-ll.plot2<-ggplot(thetall,aes(theta,loglik))+geom_line()+geom_vline(xintercept=theta.grid[which.max(ll.theta)],lty=2)+
-  xlab(TeX(r"($\theta$ (In radians))"))+ylab("Log likelihood")
+ll.plot2<-ggplot(thetall,aes(theta,loglik))+geom_line()+
+  geom_vline(xintercept=theta.grid[which.max(ll.theta)],lty=2)+
+  labs(
+    title = expression("Case 2:" ~ n[1] == 15 ~ "," ~ n[2] == 9),
+    x = expression(theta ~ "(in radians)"),
+    y = "Log likelihood"
+  )
+ll.plot2
 
 ggarrange(ll.plot,ll.plot2,ncol = 2, nrow = 1,labels = c("(a)","(b)"),
           font.label = list(size = 11, color = "black", face = "plain", family = NULL))
