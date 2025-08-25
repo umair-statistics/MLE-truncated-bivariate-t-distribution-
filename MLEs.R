@@ -27,8 +27,8 @@ NLL.Trunc = function(pars, data){
   df = 9
   theta = pars[1]
   cutoff=0.5
-  t1<-T.trun[,1]
-  t2<-T.trun[,2]
+  t1<-data[,1]
+  t2<-data[,2]
   # Calculate Negative Log-Likelihood
   -sum(log(dbvt(t1=t1,t2=t2,df=c(df,df),theta=theta,cutoff=cutoff,truncation="right")))
 }
@@ -49,8 +49,8 @@ ll.theta <- sapply(theta.grid, function(th) {
 ### Plot log likelihood
 theta_ll_df<-data.frame("theta"=theta.grid,"loglik"=ll.theta)
 ll.plot <-ggplot(theta_ll_df,aes(theta,loglik))+geom_line()+geom_vline(xintercept=theta.grid[which.max(ll.theta)],lty=2)+
-  xlab(TeX(r"($\theta$ (In radians))"))+ylab("Log likelihood"
-                                             
+  xlab(TeX(r"($\theta$ (In radians))"))+ylab("Log likelihood")
+
 #### MAXIMUM LIKELIHOOD ESTIMATION ####
 #### UNEQUAL DEGREE OF FREEDOMS ####
 
@@ -70,8 +70,8 @@ NLL.Trunc.ue = function(pars, data) {
   n1<-15
   n2<-9
   theta = pars[1]
-  t1<-T.trun[,1]
-  t2<-T.trun[,2]
+  t1<-data[,1]
+  t2<-data[,2]
   # Calculate Negative Log-Likelihood
   suppressWarnings(-sum(log(dbvt(t1,t2,df=c(n1,n2),theta=theta,cutoff = 0.5,truncation = "right"))))
 }
