@@ -40,7 +40,6 @@ devtools::install_github('umair-statistics/RTM')
 install.packages(reshape2)
 install.packages(ggplot2)
 install.packages(ggpubr)
-install.packages(latex2exp)
 ```
 
 ## Usage
