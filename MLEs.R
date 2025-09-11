@@ -29,29 +29,34 @@ NLL.Trunc = function(pars, data){
   t1<-data[,1]
   t2<-data[,2]
   # Calculate Negative Log-Likelihood
-  -sum(log(dbvt(t1=t1,t2=t2,df=c(df,df),theta=theta,cutoff=cutoff,truncation="right")))
+  nllik <- -sum(dbvt(t1=t1,t2=t2,df=c(df,df),theta=theta,
+                   cutoff=cutoff,truncation="right", log = TRUE))
+  return(nllik)
 }
 mle.trun = optim(par = c(theta = 0.5),
-                 method = "Brent",lower = 0,upper = 1,
+                 method = "Brent",lower = -pi/2,upper = pi/2,
                  fn = NLL.Trunc, data = T.trun,
                  control = list(parscale = c(theta = 0.5)))
 mle.trun$par
 
-theta.grid<-seq(0,pi/2,by=0.01)
+theta.grid<-seq(-1.47,1.47,by=0.01)
 t1 <- T.trun[,1]
 t2 <- T.trun[,2]
 
 ll.theta <- sapply(theta.grid, function(th) {
-  sum(log(dbvt(t1 = t1, t2 = t2, df = df, theta = th, cutoff = 0.5, truncation = "right")))
+  sum(dbvt(t1 = t1, t2 = t2, df = df, theta = th,
+           cutoff = 0.5, truncation = "right",log = TRUE))
 })
 
+df <- data.frame("theta"=theta.grid, "loglik"=ll.theta)
+
 ### Plot log likelihood
-ll.plot <- ggplot(theta_ll_df, aes(theta, loglik)) +
+ll.plot <- ggplot(data = df, aes(theta, loglik)) +
   geom_line() +
   geom_vline(xintercept = theta.grid[which.max(ll.theta)], lty = 2) +
   labs(
     title = expression("Case 1:" ~ n[1] == ~ n[2] == 9),
-    x     = expression(theta ~ "(in radians)"),
+    x     = expression(theta ~ "(In radians)"),
     y     = "Log likelihood"
   )
 ll.plot
@@ -78,33 +83,37 @@ NLL.Trunc.ue = function(pars, data) {
   t1<-data[,1]
   t2<-data[,2]
   # Calculate Negative Log-Likelihood
-  suppressWarnings(-sum(log(dbvt(t1,t2,df=c(n1,n2),theta=theta,cutoff = 0.5,truncation = "right"))))
+  nllik <- -sum(dbvt(t1,t2,df=c(n1,n2),theta=theta,
+                   cutoff = 0.5,truncation = "right",log = TRUE))
+  return(nllik)
 }
-mle = optim(par = c(theta=0.5),
-            method = "Brent",lower = 0,upper = 1,
-            fn = NLL.Trunc.ue, data =T.trun,
-            control = list(parscale = c(theta=0.5)))
+mle = optim(par = c(theta = 0.5),
+            method = "Brent",lower = -pi/2,upper = pi/2,
+            fn = NLL.Trunc.ue, data = T.trun,
+            control = list(parscale = c(theta = 0.5)))
 theta.est<-mle$par
 theta.est
 
-theta.grid<-seq(0,pi/2,by=0.01)
+theta.grid<-seq(-1.47,1.47,by=0.01)
 t1 <- T.trun[,1]
 t2 <- T.trun[,2]
 
 ll.theta <- sapply(theta.grid, function(th) {
-  sum(log(dbvt(t1 = t1, t2 = t2, df = df, theta = th, cutoff = 0.5, truncation = "right")))
+  sum(dbvt(t1 = t1, t2 = t2, df = df, theta = th,
+           cutoff = 0.5, truncation = "right", log = TRUE))
 })
 
 # Plot log likelihood (Truncated)
-thetall<-data.frame("theta"=theta.grid,"loglik"=ll.theta)
-ll.plot2<-ggplot(thetall,aes(theta,loglik))+geom_line()+
+df2<-data.frame("theta"=theta.grid,"loglik"=ll.theta)
+ll.plot2<-ggplot(data =  df2,aes(theta,loglik))+geom_line()+
   geom_vline(xintercept=theta.grid[which.max(ll.theta)],lty=2)+
   labs(
     title = expression("Case 2:" ~ n[1] == 15 ~ "," ~ n[2] == 9),
-    x = expression(theta ~ "(in radians)"),
+    x = expression(theta ~ "(In radians)"),
     y = "Log likelihood"
   )
 ll.plot2
 
 ggarrange(ll.plot,ll.plot2,ncol = 2, nrow = 1,labels = c("(a)","(b)"),
           font.label = list(size = 11, color = "black", face = "plain", family = NULL))
+
