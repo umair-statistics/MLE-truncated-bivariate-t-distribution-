@@ -1,4 +1,4 @@
-# Maximum Likelihood Estimation of Mixing Angle θ and degrees of freedom from Truncated Bivariate t-Distribution
+# Maximum likelihood estimation of mixing angle θ and degrees of freedom from truncated bivariate t-Distribution
 
 [![License (MIT)](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](http://opensource.org/licenses/MIT)
 
