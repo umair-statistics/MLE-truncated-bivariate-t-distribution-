@@ -1,8 +1,8 @@
-# Maximum Likelihood Estimation of Mixing Angle θ from Truncated Bivariate t-Distribution
+# Maximum Likelihood Estimation of Mixing Angle θ and degrees of freedom from Truncated Bivariate t-Distribution
 
 [![License (MIT)](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](http://opensource.org/licenses/MIT)
 
-This repository contains R codes for obtaining the maximum likelihood estimation (MLE) of the mixing angle θ from the truncated bivariate t-distribution as proposed by [Shaw et al. (2008)](https://doi.org/10.1016/j.jmva.2007.08.006). The methods implemented here follow the procedures outlined in the paper [Umair et al. (2024)](https://doi.org/10.1177/09622802241267808) and are designed to handle truncation in bivariate distributions.
+This repository contains R codes for obtaining the maximum likelihood estimation (MLE) of the mixing angle θ and degrees of freedom from the truncated bivariate t-distribution as proposed by [Shaw et al. (2008)](https://doi.org/10.1016/j.jmva.2007.08.006). The methods implemented here follow the procedures outlined in the paper [Umair et al. (2024)](https://doi.org/10.1177/09622802241267808) and are designed to handle truncation in bivariate distributions.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This repository contains R codes for obtaining the maximum likelihood estimation
 
 In most pre- and post-measurement intervention studies, samples are often drawn based on cutoff points or thresholds. This selective sampling process leads to truncation in the distribution of the respective test statistics. As a result, the standard estimation techniques for distribution parameters become inappropriate because they do not account for the truncated nature of the data. It is therefore crucial to estimate the parameters of the complete distribution based on truncated samples.
 
-[Umair et al. (2024)](https://doi.org/10.1177/09622802241267808) proposed a method for maximum likelihood estimation (MLE) of the mixing angle θ in the context of truncated bivariate t-distributions numerically. The methodology allows for accurate parameter estimation despite the truncation. This repository provides an R implementation of the proposed method, enabling researchers to perform MLE for the mixing angle θ in such scenarios.
+[Umair et al. (2024)](https://doi.org/10.1177/09622802241267808) proposed a method for maximum likelihood estimation (MLE) of the mixing angle θ in the context of truncated bivariate t-distributions numerically. The methodology allows for accurate parameter estimation despite the truncation. This repository provides an R implementation of the proposed method, enabling researchers to perform MLE for the mixing angle θ and degrees of freedom in such scenarios.
 
 ## Installation
 
@@ -47,13 +47,13 @@ install.packages(ggpubr)
 Once you have cloned the repository and installed the required packages, you can run the scripts directly in R.
 
 1. **Data Preparation:** Ensure your data is appropriately truncated and scaled to follow bivariate t-distribution.
-2. **Running the Estimation:** Use the provided functions to estimate the mixing angle θ.
+2. **Running the Estimation:** Use the provided functions to estimate the mixing angle θ and degrees of freedom.
 
 For a quick start, refer to the `MLEs.R` script in the repository.
 
 ## Code Structure
 
-- `MLEs.R`: Contains the main functions to perform MLE for the mixing angle θ.
+- `MLEs.R`: Contains the main functions to perform MLE for the mixing angle θ and degrees of freedom.
 
 ## References
 
